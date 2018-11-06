@@ -4,12 +4,16 @@ function fish_prompt --description 'Write out the prompt'
     set -l dirs (echo $pwd | string sub -s 3 | string split /)
     set -l max_len 65
     set -l idx 1
-    while [ (string length '~/'(string join / $dirs)) -gt $max_len ]
+    
+    for i in (seq (count $dirs))
+        if [ (string length $pwd) -le $max_len ]
+            break
+        end
         set dirs[$idx] '('(string sub -l 3 $dirs[$idx])')'
         set idx (math $idx+1)
         set pwd '~/'(string join / $dirs)
     end
-
+    
     set -l prompt_symbol ''
     set -x fish_color_cwd ff8b26
     set -x fish_color_param blue

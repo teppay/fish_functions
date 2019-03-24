@@ -24,6 +24,6 @@ function fish_prompt --description 'Write out the prompt'
             set prompt_symbol '$'
     end
 
-    echo -s "╭─ ["(set_color $fish_color_cwd)  $pwd (set_color normal) ']' (__fish_git_prompt)
+    echo -s "╭─ ["(set_color blue) {$USER} @ (prompt_hostname) ' ' (set_color $fish_color_cwd)  $pwd (set_color normal) ']' (__fish_git_prompt)
     echo -sn  "╰─> " (set_color normal)
 end

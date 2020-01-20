@@ -1,3 +1,4 @@
-function cd --description 'cd -> clear'
-    builtin cd $argv; and clear;
+function cd --description 'cd -> ls'
+    builtin cd $argv;
+    ls;
 end
